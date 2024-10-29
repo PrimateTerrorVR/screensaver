@@ -76,11 +76,12 @@ class VirtualKeyboard {
             keyElement.style.padding = '10px';
             keyElement.style.border = '1px solid #ccc';
             keyElement.style.borderRadius = '5px';
-            keyElement.style.transition = 'background-color 0.3s';
+            keyElement.style.transition = 'box-shadow 0.3s'; // Change transition to box-shadow
             keyElement.style.cursor = 'pointer';
             keyElement.style.textAlign = 'center';
             keyElement.style.fontSize = '16px';
             keyElement.style.fontWeight = 'bold';
+            keyElement.style.fontFamily = 'Arial, sans-serif'; // Custom font (change as needed)
             keyElement.dataset.key = key; // Store the key value in a data attribute
             container.appendChild(keyElement);
         });
@@ -138,7 +139,8 @@ class VirtualKeyboard {
     handleKeyPress(key) {
         const keyElement = this.keyboardContainer.querySelector(`div[data-key="${key.toUpperCase()}"]`);
         if (keyElement) {
-            keyElement.style.backgroundColor = 'lightblue'; // Change color on press
+            keyElement.style.boxShadow = '0 0 20px lightblue'; // Glow effect
+            keyElement.style.backgroundColor = 'lightblue'; // Optional: change background color
         }
     }
 
@@ -150,7 +152,8 @@ class VirtualKeyboard {
     handleKeyRelease(key) {
         const keyElement = this.keyboardContainer.querySelector(`div[data-key="${key.toUpperCase()}"]`);
         if (keyElement) {
-            keyElement.style.backgroundColor = ''; // Reset to normal
+            keyElement.style.boxShadow = ''; // Reset glow effect
+            keyElement.style.backgroundColor = ''; // Reset background color
         }
     }
 }
