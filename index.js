@@ -16,6 +16,7 @@ class VirtualKeyboard {
         this.timeDisplay = this.createTimeDisplay();
         this.createFrameEmoji(); // Create the frame emoji on initialization
         this.updateTime(); // Start the time update loop
+        this.initEventListeners(); // Initialize event listeners for key press
     }
 
     // Create the frame emoji in the top right corner
@@ -140,7 +141,8 @@ class VirtualKeyboard {
         const keyElement = this.keyboardContainer.querySelector(`div[data-key="${key.toUpperCase()}"]`);
         if (keyElement) {
             keyElement.style.boxShadow = '0 0 20px lightblue'; // Glow effect
-            keyElement.style.backgroundColor = 'lightblue'; // Optional: change background color
+            keyElement.style.backgroundColor = 'lightblue'; // Change background color
+            keyElement.style.transform = 'translateY(4px)'; // Push down effect
         }
     }
 
@@ -154,6 +156,7 @@ class VirtualKeyboard {
         if (keyElement) {
             keyElement.style.boxShadow = ''; // Reset glow effect
             keyElement.style.backgroundColor = ''; // Reset background color
+            keyElement.style.transform = 'translateY(0)'; // Reset push down effect
         }
     }
 }
